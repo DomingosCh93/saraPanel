@@ -236,6 +236,7 @@
     padding: 12px 0;
     border-bottom: 1px solid rgba(255,255,255,0.04);
     overflow: hidden;
+    min-width: 0;
   }
   .conv-item:last-child { border-bottom: none; }
   .conv-avatar {
@@ -245,31 +246,9 @@
     font-size: 11px; font-weight: 600; color: var(--accent);
     flex-shrink: 0;
   }
-  .conv-body {
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
-  width: 0;
-  }
- .conv-name {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-}
-
-.conv-msg {
-  font-size: 11px;
-  color: var(--text-dim);
-  margin-top: 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-}
+  .conv-body { flex: 1; width: 0; min-width: 0; overflow: hidden; }
+  .conv-name { font-size: 12px; font-weight: 500; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .conv-msg { font-size: 11px; color: var(--text-dim); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .conv-time { font-size: 10px; color: var(--text-faint); margin-top: 3px; }
 
   /* COMUNICADOS */
@@ -327,9 +306,6 @@
     background: var(--card); color: var(--text-dim);
     transition: all 0.15s;
   }
-  .conv-msg { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .conv-name { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  #dConvs, #dInfos { overflow: hidden; }
   .dest-chip.selected { background: var(--accent-dim); color: var(--accent); border-color: var(--accent-glow); }
 </style>
 </head>
