@@ -235,6 +235,7 @@
     display: flex; align-items: flex-start; gap: 12px;
     padding: 12px 0;
     border-bottom: 1px solid rgba(255,255,255,0.04);
+    overflow: hidden;
   }
   .conv-item:last-child { border-bottom: none; }
   .conv-avatar {
@@ -304,6 +305,9 @@
     background: var(--card); color: var(--text-dim);
     transition: all 0.15s;
   }
+  .conv-msg { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .conv-name { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #dConvs, #dInfos { overflow: hidden; }
   .dest-chip.selected { background: var(--accent-dim); color: var(--accent); border-color: var(--accent-glow); }
 </style>
 </head>
@@ -731,15 +735,15 @@ async function loadDashboard() {
     if (!Array.isArray(recentConvs) || recentConvs.length === 0) {
       convEl.innerHTML = '<div class="empty"><div class="empty-icon">💬</div><div class="empty-text">Nenhuma conversa ainda</div></div>';
     } else {
-      convEl.innerHTML = recentConvs.map(c => `
+    convEl.innerHTML = recentConvs.map(c => `
         <div class="conv-item">
           <div class="conv-avatar">${(c.nome||'?')[0].toUpperCase()}</div>
-          <div class="conv-body">
-            <div class="conv-name">${c.nome || c.numero_whatsapp}</div>
-            <div class="conv-msg">${c.mensagem}</div>
+          <div class="conv-body" style="min-width:0;overflow:hidden;">
+            <div class="conv-name" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${c.nome || c.numero_whatsapp}</div>
+            <div class="conv-msg" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${c.mensagem}</div>
             <div class="conv-time">${formatDate(c.data)}</div>
           </div>
-          ${c.is_grupo ? '<span class="badge badge-blue">Grupo</span>' : ''}
+          ${c.is_grupo ? '<span class="badge badge-blue" style="flex-shrink:0;">Grupo</span>' : ''}
         </div>`).join('');
     }
 
