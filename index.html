@@ -245,9 +245,31 @@
     font-size: 11px; font-weight: 600; color: var(--accent);
     flex-shrink: 0;
   }
-  .conv-body { flex: 1; min-width: 0; }
-  .conv-name { font-size: 12px; font-weight: 500; color: var(--text); }
-  .conv-msg { font-size: 12px; color: var(--text-dim); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .conv-body {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  width: 0;
+  }
+ .conv-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.conv-msg {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
   .conv-time { font-size: 10px; color: var(--text-faint); margin-top: 3px; }
 
   /* COMUNICADOS */
